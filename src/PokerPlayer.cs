@@ -56,7 +56,7 @@ namespace Nancy.Simple
 
 
             }
-
+            if (cards.Count == 2) guraj = true;
             //
 
             if (!guraj) return ourbet;
@@ -71,6 +71,11 @@ namespace Nancy.Simple
             {
                 this.rank = rank;
                 this.suite = suite;
+            }
+
+            public override string ToString()
+            {
+                return string.Format("({0},{1})", rank,suite);
             }
         }
 
