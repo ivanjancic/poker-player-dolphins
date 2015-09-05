@@ -32,6 +32,7 @@ namespace Nancy.Simple
                     {
                         cards.Add(new Card(int.Parse(card["rank"].ToString()), card["suite"].ToString()));
                     }
+                    Console.Out.WriteLine(ply["name"]);
                 }
 
             }
@@ -41,25 +42,12 @@ namespace Nancy.Simple
                 cards.Add(new Card(int.Parse(card["rank"].ToString()), card["suite"].ToString()));
             }
 
-
-            //  estimacija
-            bool guraj = false;
-
-            if (maxbet < 500) guraj = true;
-            foreach (Card card1 in cards)
+            foreach (Card card in cards)
             {
-                foreach (Card card2 in cards)
-                    if(card1!=card2)
-                    {
-                        if (card1.rank == card2.rank) guraj = true;
-                    }
-
-Console.Out.WriteLine(card1.ToString());
+                Console.Out.WriteLine(card.ToString());
             }
-            if (cards.Count == 2) guraj = true;
-            //
-
-            if (!guraj) return ourbet;
+            //  estimacija
+   
 			return maxbet+10;
 		}
 
