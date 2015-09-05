@@ -39,15 +39,15 @@ namespace Nancy.Simple
                 foreach (Card card2 in cards)
                     if(card1!=card2)
                     {
-                        if (card1.rank + card2.rank >= 20 ) guraj = true;
+                        if (card1.rank + card2.rank >= 20 ) guraj = true; 
+                            {
+                                guraj = true;
+                                return maxbet+10;
+                            }
                     }
 
                 Console.Out.WriteLine(card1.ToString());
             }
-            if (cards.Count <= 5) guraj = true;
-            //
-
-            if (guraj)
 			return maxbet+10;
 		}
 
@@ -73,4 +73,3 @@ namespace Nancy.Simple
 		}
 	}
 }
-
