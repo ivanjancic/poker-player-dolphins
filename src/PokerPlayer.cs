@@ -1,4 +1,4 @@
-sing Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 
@@ -34,7 +34,6 @@ namespace Nancy.Simple
             //  estimacija
             bool guraj = false;
 
-            if (maxbet < 500) guraj = true;
             foreach (Card card1 in cards)
             {
                 foreach (Card card2 in cards)
@@ -74,3 +73,4 @@ namespace Nancy.Simple
 		}
 	}
 }
+
