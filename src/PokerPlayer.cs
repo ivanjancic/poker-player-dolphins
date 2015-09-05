@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+sing Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 
@@ -20,14 +20,6 @@ namespace Nancy.Simple
 
             foreach (JObject ply in gameState["players"])
             {
-                Console.Out.WriteLine(ply["name"]);
-
-                int curbet = int.Parse(ply["bet"].ToString());
-                if (curbet > maxbet) maxbet = curbet;
-                
-                if (ply["name"].Equals("Dolpins"))
-                {
-                    ourbet = int.Parse(ply["bet"].ToString());
                     foreach (JObject card in ply["hole_cards"])
                     {
                         cards.Add(new Card(int.Parse(card["rank"].ToString()), card["suite"].ToString()));
@@ -36,10 +28,7 @@ namespace Nancy.Simple
 
             }
 
-            foreach (JObject card in gameState["community_cards"])
-            {
-                cards.Add(new Card(int.Parse(card["rank"].ToString()), card["suite"].ToString()));
-            }
+            
 
 
             //  estimacija
@@ -51,7 +40,7 @@ namespace Nancy.Simple
                 foreach (Card card2 in cards)
                     if(card1!=card2)
                     {
-                        if (card1.rank == card2.rank) guraj = true;
+                        if (card1.rank + card2.rank >= 20 ) guraj = true;
                     }
 
                 Console.Out.WriteLine(card1.ToString());
@@ -59,7 +48,7 @@ namespace Nancy.Simple
             if (cards.Count <= 5) guraj = true;
             //
 
-            if (!guraj) return ourbet;
+            if (guraj)
 			return maxbet+10;
 		}
 
