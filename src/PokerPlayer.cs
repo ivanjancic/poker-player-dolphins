@@ -11,7 +11,10 @@ namespace Nancy.Simple
 		{
 			//TODO: Use this method to return the value You want to bet
 			Console.Out.WriteLine(gameState["players"].ToString());
-			
+			foreach (JObject ply in gameState["players"])
+            		{
+        			 Console.Out.WriteLine(ply["name"]);
+            		}
 			return 150;
 		}
 
