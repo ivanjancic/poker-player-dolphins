@@ -10,7 +10,8 @@ namespace Nancy.Simple
 		public static int BetRequest(JObject gameState)
 		{
 			//TODO: Use this method to return the value You want to bet
-			Console.Out.WriteLine(gameState.ToString());
+			Console.Out.WriteLine(gameState["players"].ToString());
+			
 			return 150;
 		}
 
