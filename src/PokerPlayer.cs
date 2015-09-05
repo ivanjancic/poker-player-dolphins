@@ -54,7 +54,7 @@ namespace Nancy.Simple
                         if (card1.rank == card2.rank) guraj = true;
                     }
 
-
+Console.Out.WriteLine(card1.ToString());
             }
             if (cards.Count == 2) guraj = true;
             //
